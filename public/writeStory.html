@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bcc6d8483c.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .write-article {
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        textarea, form input {
+            width: 40%;
+            margin-left: 30%;
+            margin-top: 2%;
+            border: 0;
+            font-size: large;
+            resize: none;
+            overflow: hidden;
+        }
+
+        textarea:focus, form input:focus {
+            outline: none !important;
+        }
+
+        .title-inp {
+            margin-top: 7%;
+            font-weight: 900;
+            font-size: xx-large;
+        }
+
+        .text-inp, form input:focus {
+            font-weight: 400;
+            font-size: large;
+        }
+        form input{
+            font-family: monospace;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 0.5%;
+            font-size: xx-large;
+        }
+
+        .nav-item1 {
+            text-align: center;
+        }
+
+        .logo>i {
+            margin-top: 1.8%;
+        }
+        .logo:visited {
+            color: black;
+        }
+        .logo:link{
+            color: black;
+        }
+        .logo:active{
+            color: black;
+        }
+        .logo.hover{color: black;}
+
+        .nav-item2 {
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            border-radius: 15px;
+            padding: 0.5%;
+            padding-left: 1.5%;
+            padding-right: 1.5%;
+            border: none;
+            background-color: #459142;
+            color: white;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #profile{
+            border: none;
+            background-color: white;
+            font-size: 18px;
+            margin-left: 3%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-item1"><a href="http://localhost:3000/" class="logo"><i class="fa-brands fa-medium"></i></a></div>
+        <div class="nav-item2">
+            <button class="submit-btn" type="submit" onclick="submitfunc()">Publish</button>
+            <button id="profile"><i class="fa-solid fa-user"></i></button>
+        </div>
+    </nav>
+
+    <article class="write-article">
+        <form id="story-form" action='http://localhost:8000/posts/' method="POST">
+            <div>
+                <textarea name="posttitle" class="title-inp" rows="3" placeholder="Title" required></textarea>
+            </div>
+            <div>
+                <textarea name="posttext" class="text-inp" rows="10" placeholder="Tell your story..." required></textarea>
+            </div>
+            <div>
+                <input type="text" name="categories" placeholder="What your story is about?">
+            </div>
+        </form>
+    </article>
+
+    <script>
+        function submitfunc(){
+            document.getElementById("story-form").submit() 
+        }
+    </script>
+
+</body>
+
+</html>
